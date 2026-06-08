@@ -1,0 +1,99 @@
+/* Blog */
+.bix-blog-box {
+    margin-top: 50px;
+    padding: 20px;
+    position: relative;
+    border: 1px solid $black-off;
+    border-radius: 30px;
+    display: flex;
+
+    .blog-img {
+        margin-right: 10px;
+        position: absolute;
+        width: 200px;
+        top: -50px;
+        left: 20px;
+        right: 20px;
+
+        img {
+            width: 200px;
+            border-radius: 30px;
+        }
+    }
+
+    .blog-contact {
+        margin-left: 20px;
+        padding-left: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        h4 {
+            margin-bottom: 8px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+
+            a {
+                @include ease3;
+                font-size: 18px;
+                font-weight: 700;
+                color: $black-off;
+                &:hover {
+                    color: $primary;
+                }
+            }
+        }
+
+        p {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+
+        span {
+            font-size: 13px;
+            color: $text-999;
+        }
+    }
+}
+
+/* Responsive */
+@media screen and (max-width: 1199px) {
+    .bix-blog-box {
+        .blog-img {
+            margin-right: 0;
+            margin-bottom: 10px;
+            position: relative;
+            width: auto;
+            top: 0;
+            left: 0;
+            right: 0;
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+
+    .bix-blog-box {
+        margin-top: 0;
+        flex-direction: column;
+
+        .blog-contact {
+            margin-left: 0;
+            padding-left: 0;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .bix-blog-box {
+        max-width: 430px;
+        margin: 0 auto;
+    }
+}

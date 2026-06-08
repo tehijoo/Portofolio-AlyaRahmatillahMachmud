@@ -1,0 +1,157 @@
+/* Services */
+.section-services {
+    position: relative;
+
+    &:before {
+        content: "";
+        height: 130px;
+        width: 130px;
+        background-image: url("../img/services/shape-1.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        position: absolute;
+        bottom: -100px;
+        left: 100px;
+        z-index: -1;
+    }
+}
+
+.bg-services-one {
+    background-color: $bg-services-one;
+}
+
+.bg-services-two {
+    background-color: $bg-services-two;
+}
+
+.bg-services-three {
+    background-color: $bg-services-three;
+}
+
+.bg-services-four {
+    background-color: $bg-services-four;
+}
+
+.bg-services-five {
+    background-color: $bg-services-five;
+}
+
+.bg-services-six {
+    background-color: $bg-services-six;
+}
+
+.bg-services-seven {
+    background-color: $bg-services-seven;
+}
+
+.bg-services-eight {
+    background-color: $bg-services-eight;
+}
+
+.bix-services {
+    margin-top: 30px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    border-radius: 30px;
+
+    .services-image {
+        margin-top: -30px;
+        display: flex;
+        justify-content: center;
+        position: relative;
+
+        .inner-image {
+            margin-top: -7px;
+            padding: 20px;
+            position: relative;
+            background: #fff;
+            border-radius: 50%;
+
+            &:after {
+                content: "";
+                height: 40px;
+                width: 40px;
+                background-image: url("../img/services/left-shape.png");
+                background-repeat: no-repeat;
+                background-size: 100%;
+                position: absolute;
+                top: 18px;
+                left: -18px;
+                z-index: 0;
+            }
+
+            &:before {
+                content: "";
+                height: 40px;
+                width: 40px;
+                background-image: url("../img/services/right-shape.png");
+                background-repeat: no-repeat;
+                background-size: 100%;
+                position: absolute;
+                top: 18px;
+                right: -18px;
+                z-index: 0;
+            }
+        }
+
+        img {
+            height: 35px;
+            width: 35px;
+            position: relative;
+            z-index: 1;
+            position: relative;
+        }
+
+        .ring {
+            content: "";
+            height: 60px;
+            width: 60px;
+            margin: auto;
+            border: 1px solid #111a24;
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            border-radius: 50%;
+            display: inline-block;
+            z-index: 5;
+        }
+    }
+
+    .services-contact {
+        padding: 30px;
+
+        h5 {
+            margin-bottom: 14px;
+            font-size: 18px;
+            color: $black-off;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 14px;
+            line-height: 20px;
+            color: $black-off;
+        }
+    }
+}
+
+/* Responsive */
+@media screen and (max-width: 991px) {
+    .section-services {
+        &:before {
+            height: 100px;
+            width: 100px;
+        }
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .section-services {
+        &:before {
+            left: 20px;
+        }
+    }
+}

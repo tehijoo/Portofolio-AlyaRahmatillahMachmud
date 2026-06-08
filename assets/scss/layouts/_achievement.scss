@@ -1,0 +1,393 @@
+/* Achievement */
+.section-achievement {
+    position: relative;
+
+    &:before {
+        content: "";
+        height: 110px;
+        width: 100px;
+        background-image: url("../img/achieve/shape-1.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        position: absolute;
+        top: 150px;
+        left: 10px;
+        z-index: -1;
+    }
+
+    &:after {
+        content: "";
+        height: 130px;
+        width: 130px;
+        background-image: url("../img/achieve/shape-2.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        position: absolute;
+        bottom: 50px;
+        left: 500px;
+        z-index: -1;
+    }
+}
+
+.bix-activity-tabs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    ul {
+        margin-bottom: 30px;
+    }
+}
+
+ul.nav-tabs {
+    justify-content: center;
+    display: inline-flex;
+    align-items: center;
+    background-color: $white;
+    border: 1px solid $black;
+    border-radius: 30px;
+
+    li {
+        margin: 10px;
+
+        button {
+            border: 0 !important;
+            padding: 5px 15px;
+            border-radius: 20px !important;
+            color: $black !important;
+            text-transform: capitalize;
+            font-weight: 500;
+            font-size: 16px;
+        }
+
+        button.active {
+            border: 0 !important;
+            background-color: $black !important;
+            color: $white !important;
+        }
+    }
+}
+
+.bix-achievement {
+    position: relative;
+    display: flex;
+    width: 100%;
+
+    .border-r {
+        padding: 0 30px 0 0;
+        border-right: 0.5px solid $black;
+
+        &:before {
+            content: "";
+            height: 6px;
+            width: 16px;
+            border: 2px solid #fff;
+            position: absolute;
+            right: 0;
+            left: 0;
+            top: 0;
+            margin: auto;
+            background-color: $black;
+            z-index: 0;
+        }
+
+        .achievement-year {
+            right: -72px;
+
+            &:after {
+                top: 55px;
+            }
+        }
+    }
+
+    .border-l {
+        padding: 0 0 0 30px;
+        border-left: 0.5px solid $black;
+
+        &:before {
+            content: "";
+            height: 6px;
+            width: 16px;
+            border: 2px solid #fff;
+            margin: auto;
+            position: absolute;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            background-color: $black;
+            z-index: 0;
+        }
+
+        .achievement-year {
+            left: -72px;
+
+            &:after {
+                bottom: 55px;
+            }
+        }
+    }
+
+    .bix-achievement-inner {
+        width: 50%;
+
+        .mt-150 {
+            margin-top: 150px;
+        }
+
+        .bix-achievement-box {
+            border: 1px solid $black;
+            padding: 30px;
+            border-radius: 30px;
+            background-color: $bg-lightness;
+            position: relative;
+
+            .achievement-year {
+                width: 100px;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transform: rotate(270deg);
+                z-index: 1;
+
+                span {
+                    background-color: $black-off;
+                    color: $white;
+                    border: 1px solid $black-off;
+                    border-radius: $radius-10;
+                    line-height: 1;
+                    padding: 3px 10px;
+                    font-size: 14px;
+                }
+            }
+
+            h4 {
+                margin-bottom: 8px;
+                font-size: 18px;
+                font-weight: 600;
+                line-height: 26px;
+                color: $black-off;
+
+                span {
+                    font-size: 15px;
+                    color: $text-555;
+                }
+            }
+
+            p {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+            }
+        }
+
+        .bix-achievement-box.left {
+            .achievement-year {
+                right: -82px;
+            }
+
+            &:after {
+                content: "";
+                width: 30px;
+                height: 2px;
+                position: absolute;
+                top: 50%;
+                right: -30px;
+                background-color: $black;
+                z-index: -1;
+            }
+        }
+
+        .bix-achievement-box.right {
+            .achievement-year {
+                left: -82px;
+            }
+
+            &:after {
+                content: "";
+                width: 30px;
+                height: 2px;
+                position: absolute;
+                top: 50%;
+                left: -30px;
+                background-color: $black;
+                z-index: -1;
+            }
+        }
+    }
+}
+
+/* Responsive */
+@media screen and (max-width: 1399px) {
+    .section-achievement {
+        &:after {
+            left: 400px;
+        }
+    }
+
+    .bix-achievement {
+        .border-r {
+            .achievement-year {
+                &:after {
+                    top: 68px;
+                }
+            }
+        }
+
+        .border-l {
+            .achievement-year {
+                &:after {
+                    bottom: 68px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    .section-achievement {
+        &:after {
+            height: 100px;
+            width: 100px;
+            left: 300px;
+        }
+    }
+
+    .bix-achievement {
+        .border-r {
+            .achievement-year {
+                &:after {
+                    top: 78px;
+                }
+            }
+        }
+
+        .border-l {
+            .achievement-year {
+                &:after {
+                    bottom: 68px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .section-achievement {
+        &:before {
+            height: 90px;
+            width: 80px;
+        }
+    }
+
+    .bix-achievement {
+        .border-r {
+            .achievement-year {
+                &:after {
+                    top: 118px;
+                }
+            }
+        }
+
+        .border-l {
+            .achievement-year {
+                &:after {
+                    bottom: 108px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .section-achievement {
+        &:after {
+            left: 10px;
+        }
+    }
+
+    .bix-achievement {
+        flex-direction: column;
+
+        .border-l {
+            margin-bottom: -24px;
+            border: 0;
+            padding: 0;
+
+            &:before {
+                display: none;
+            }
+
+            .achievement-year {
+                &:after {
+                    bottom: 70px;
+                }
+            }
+        }
+
+        .bix-achievement-inner {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+
+            .mt-150 {
+                margin-top: 0;
+            }
+
+            .bix-achievement-box {
+                margin-top: 12px;
+                margin-bottom: 24px;
+            }
+
+            .bix-achievement-box.left,
+            .bix-achievement-box.right {
+                &:after {
+                    display: none;
+                }
+
+                .achievement-year {
+                    // display: none;
+                    display: block;
+                    transform: rotate(0deg);
+                    top: -13px;
+                    left: 45px;
+                }
+            }
+        }
+
+        .border-r {
+            border: 0;
+            padding: 0;
+
+            &:before {
+                display: none;
+            }
+
+            .achievement-year {
+                right: auto;
+                left: -70px;
+
+                &:after {
+                    top: 87px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .bix-achievement {
+        .bix-achievement-inner {
+            .bix-achievement-box {
+                h4 {
+                    font-size: 16px;
+                    line-height: 25px;
+                }
+            }
+        }
+    }
+}
