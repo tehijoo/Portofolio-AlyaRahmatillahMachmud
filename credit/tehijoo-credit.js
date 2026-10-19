@@ -113,16 +113,16 @@
 
       if (v === 'pill') {
         html = open + '>' + mark(24, true, false) +
-          '<span class="label">' + label + '</span><span class="name">' + NAME + '</span></a>';
+          '<span class="label">' + label + '</span> <span class="name">' + NAME + '</span></a>';
       } else if (v === 'stack') {
         html = open + '>' + mark(36, false, true) +
-          '<span class="txt"><span class="kicker">' + label + '</span><span class="name">' + NAME + '</span></span></a>';
+          '<span class="txt"><span class="kicker">' + label + '</span> <span class="name">' + NAME + '</span></span></a>';
       } else if (v === 'mini') {
         html = open + ' aria-label="' + esc(rawLabel + ' ' + NAME) + '" title="' + esc(rawLabel + ' ' + NAME) + '">' +
           mark(28, true, false) + '<span class="reveal" aria-hidden="true">' + NAME + '</span></a>';
       } else {
-        html = open + '><span class="label">' + label + '</span>' + mark(18, false, false) +
-          '<span class="name">' + NAME + '</span></a>';
+        html = open + '><span class="label">' + label + '</span> ' + mark(18, false, false) +
+          ' <span class="name">' + NAME + '</span></a>';
       }
 
       this.shadowRoot.innerHTML = '<style>' + CSS + '</style>' + html;

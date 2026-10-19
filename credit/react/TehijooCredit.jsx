@@ -94,7 +94,7 @@ export default function TehijooCredit({
     content = (
       <a className="tjc-pill" {...link}>
         <Mark size={24} round />
-        <span>{label}</span>
+        <span>{label}</span>{' '}
         <span className="tjc-name">{NAME}</span>
       </a>
     );
@@ -103,7 +103,7 @@ export default function TehijooCredit({
       <a className="tjc-stack" {...link}>
         <Mark size={36} stem />
         <span className="tjc-txt">
-          <span className="tjc-kicker">{label}</span>
+          <span className="tjc-kicker">{label}</span>{' '}
           <span className="tjc-name">{NAME}</span>
         </span>
       </a>
@@ -118,8 +118,8 @@ export default function TehijooCredit({
   } else {
     content = (
       <a className="tjc-text" {...link}>
-        <span>{label}</span>
-        <Mark size={18} />
+        <span>{label}</span>{' '}
+        <Mark size={18} />{' '}
         <span className="tjc-name">{NAME}</span>
       </a>
     );
