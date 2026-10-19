@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tehijoo Credit Kit</title>
+<link rel="icon" href="logo/favicon.svg" type="image/svg+xml">
+<script src="tehijoo-credit.js" defer></script>
+<style>
+  :root{--matcha:#1F5135;--daun:#8BCB93;--seduhan:#E9F2E4;--arang:#16241B;--muted:#5B6B60;--line:#DCE5D8}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--arang);background:#FAFBF9;line-height:1.5}
+  .wrap{max-width:1040px;margin:0 auto;padding:48px 16px 72px}
+  header{display:flex;align-items:center;gap:16px;margin-bottom:12px}
+  header h1{margin:0;font-size:28px;letter-spacing:-.02em}
+  .lead{margin:0 0 40px;color:var(--muted);max-width:640px}
+  h2{font-size:18px;margin:0 0 4px}
+  .hint{margin:0 0 16px;color:var(--muted);font-size:14px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-bottom:28px}
+  .card-head{padding:22px 24px 0}
+  .stage{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stage > div{min-height:120px;display:flex;align-items:center;justify-content:center;padding:28px 16px}
+  .light{background:#F3F4F6;color:#4B5563}
+  .dark{background:#111418;color:#C5CCC7}
+  .code{position:relative;background:#0F1A13;color:#D7E6DA;padding:18px 20px;font:13px/1.6 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;overflow-x:auto;white-space:pre}
+  .copy{position:absolute;top:10px;right:10px;font:600 12px/1 ui-sans-serif,system-ui,sans-serif;color:#0F1A13;background:var(--daun);border:0;border-radius:8px;padding:9px 12px;cursor:pointer;min-height:32px}
+  .copy:focus-visible{outline:2px solid #fff;outline-offset:2px}
+  .footer-demo{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px 24px;padding:22px 28px;font-size:14px}
+  .footer-demo.center{flex-direction:column;justify-content:center;text-align:center}
+  @media (max-width:640px){.stage{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img src="logo/tehijoo-mark.svg" width="48" height="48" alt="">
+    <h1>Tehijoo Credit Kit</h1>
+  </header>
+  <p class="lead">Elemen “Developed by Tehijoo Studio” untuk dipasang di footer project klien. Arahkan kursor ke tiap elemen untuk melihat efeknya.</p>
+
+  <div class="card">
+    <div class="card-head">
+      <h2>Teks</h2>
+      <p class="hint">Paling halus. Mengikuti font dan warna footer klien, cocok disandingkan dengan baris copyright.</p>
+    </div>
+    <div class="stage">
+      <div class="light"><tehijoo-credit variant="text" theme="light"></tehijoo-credit></div>
+      <div class="dark"><tehijoo-credit variant="text" theme="dark"></tehijoo-credit></div>
+    </div>
+    <div class="code"><button class="copy" type="button">Salin</button><code>&lt;tehijoo-credit variant="text" theme="light"&gt;&lt;/tehijoo-credit&gt;</code></div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <h2>Pil</h2>
+      <p class="hint">Lebih menonjol, tetap rapi. Pas untuk landing page dan website perusahaan.</p>
+    </div>
+    <div class="stage">
+      <div class="light"><tehijoo-credit variant="pill" theme="light"></tehijoo-credit></div>
+      <div class="dark"><tehijoo-credit variant="pill" theme="dark"></tehijoo-credit></div>
+    </div>
+    <div class="code"><button class="copy" type="button">Salin</button><code>&lt;tehijoo-credit variant="pill" theme="dark"&gt;&lt;/tehijoo-credit&gt;</code></div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <h2>Tumpuk</h2>
+      <p class="hint">Gaya lencana. Cocok untuk footer yang rata tengah atau halaman “Tentang”.</p>
+    </div>
+    <div class="stage">
+      <div class="light"><tehijoo-credit variant="stack" theme="light"></tehijoo-credit></div>
+      <div class="dark"><tehijoo-credit variant="stack" theme="dark"></tehijoo-credit></div>
+    </div>
+    <div class="code"><button class="copy" type="button">Salin</button><code>&lt;tehijoo-credit variant="stack" theme="auto"&gt;&lt;/tehijoo-credit&gt;</code></div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <h2>Mini</h2>
+      <p class="hint">Hanya ikon, melebar menampilkan nama saat disentuh kursor. Untuk aplikasi atau dashboard yang ruangnya sempit.</p>
+    </div>
+    <div class="stage">
+      <div class="light"><tehijoo-credit variant="mini" theme="light"></tehijoo-credit></div>
+      <div class="dark"><tehijoo-credit variant="mini" theme="dark"></tehijoo-credit></div>
+    </div>
+    <div class="code"><button class="copy" type="button">Salin</button><code>&lt;tehijoo-credit variant="mini" theme="light"&gt;&lt;/tehijoo-credit&gt;</code></div>
+  </div>
+
+  <h2 style="margin-top:44px">Contoh di footer</h2>
+  <p class="hint">Copyright tetap atas nama klien, kredit Anda di sebelahnya.</p>
+  <div class="card">
+    <div class="footer-demo light">
+      <span>© 2026 Hidayah Canopy. All Rights Reserved.</span>
+      <tehijoo-credit variant="text" theme="light"></tehijoo-credit>
+    </div>
+  </div>
+  <div class="card">
+    <div class="footer-demo dark center">
+      <span>© 2026 CSSMoRA ITS. All Rights Reserved.</span>
+      <tehijoo-credit variant="pill" theme="dark" label="Dikembangkan oleh"></tehijoo-credit>
+    </div>
+  </div>
+  <div class="code" style="border-radius:18px"><button class="copy" type="button">Salin</button><code>&lt;footer class="site-footer"&gt;
+  &lt;span&gt;© 2026 Nama Klien. All Rights Reserved.&lt;/span&gt;
+  &lt;tehijoo-credit variant="text"&gt;
+    &lt;a href="https://tehijoo.github.io/Portofolio-AlyaRahmatillahMachmud/"&gt;Developed by Tehijoo Studio&lt;/a&gt;
+  &lt;/tehijoo-credit&gt;
+&lt;/footer&gt;
+
+&lt;script src="https://tehijoo.github.io/Portofolio-AlyaRahmatillahMachmud/credit/tehijoo-credit.js" defer&gt;&lt;/script&gt;</code></div>
+</div>
+<script>
+  document.querySelectorAll('.copy').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var text = btn.parentElement.querySelector('code').textContent;
+      var done = function () { btn.textContent = 'Tersalin'; setTimeout(function () { btn.textContent = 'Salin'; }, 1600); };
+      try {
+        navigator.clipboard.writeText(text).then(done, function () { btn.textContent = 'Salin manual'; });
+      } catch (e) { btn.textContent = 'Salin manual'; }
+    });
+  });
+</script>
+</body>
+</html>
