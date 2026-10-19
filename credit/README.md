@@ -24,7 +24,8 @@ Atribut lain:
 
 - `theme="light" | "dark" | "auto"` — `auto` mengikuti mode gelap perangkat pengunjung.
 - `label="Dikembangkan oleh"` — ganti teks pengantar (default `Developed by`).
-- `href="..."` — ganti tujuan tautan (default ke portofolio Anda).
+- `from="Nama Klien"` — nama website klien yang ikut tertulis di pesan WhatsApp (web component otomatis memakai nama domain kalau dikosongkan).
+- `href="..."` — ganti tujuan tautan (default ke halaman kontak `/go/`).
 
 ---
 
@@ -37,7 +38,11 @@ Simpan `tehijoo-credit.js` di repo portofolio Anda supaya semua project memakai 
 3. File akan bisa diakses di:
    `https://tehijoo.github.io/Portofolio-AlyaRahmatillahMachmud/credit/tehijoo-credit.js`
 
-Keuntungannya: kalau nanti alamat portofolio berubah (misalnya Anda punya domain sendiri), cukup ubah `DEFAULT_HREF` di file ini sekali — kredit di semua website klien ikut berubah.
+## Ke mana kredit diarahkan
+
+Semua kredit membuka `https://tehijoo.github.io/Portofolio-AlyaRahmatillahMachmud/go/`, halaman perantara yang **sekarang meneruskan ke WhatsApp Tehijoo Studio** dengan pesan pembuka berisi nama website asal pengunjung.
+
+Kalau nanti website usaha sudah jadi, buka `go/index.html` di repo portofolio dan isi baris `var WEBSITE = '';` dengan alamatnya. Semua website klien langsung ikut mengarah ke sana tanpa perlu diedit satu per satu.
 
 > Kalau website klien punya kebijakan keamanan ketat (CSP) yang melarang skrip dari luar, salin saja `tehijoo-credit.js` ke dalam project itu dan panggil dari path lokalnya.
 
@@ -51,7 +56,7 @@ Keuntungannya: kalau nanti alamat portofolio berubah (misalnya Anda punya domain
 
   <tehijoo-credit variant="text" theme="light">
     <!-- cadangan: tetap tampil sebagai tautan biasa kalau skrip gagal dimuat -->
-    <a href="https://tehijoo.github.io/Portofolio-AlyaRahmatillahMachmud/">Developed by Tehijoo Studio</a>
+    <a href="https://tehijoo.github.io/Portofolio-AlyaRahmatillahMachmud/go/">Developed by Tehijoo Studio</a>
   </tehijoo-credit>
 </footer>
 
@@ -76,7 +81,7 @@ export default function Footer() {
   return (
     <footer className="flex justify-between items-center py-6">
       <span>© 2026 Hidayah Canopy. All Rights Reserved.</span>
-      <TehijooCredit variant="text" theme="light" />
+      <TehijooCredit variant="text" theme="light" from="Hidayah Canopy" />
     </footer>
   );
 }

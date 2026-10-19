@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Hubungi Tehijoo Studio</title>
+<link rel="icon" href="../credit/logo/favicon.svg" type="image/svg+xml">
+<script>
+  (function () {
+    // ================================================================
+    //  UBAH DI SINI kalau website usaha Tehijoo Studio sudah jadi:
+    //  isi WEBSITE dengan alamatnya, misalnya 'https://tehijoo.studio/'.
+    //  Selama WEBSITE masih kosong, pengunjung diteruskan ke WhatsApp.
+    // ================================================================
+    var WEBSITE = '';
+    var WA_NUMBER = '6282235788376';
+
+    var from = '';
+    try { from = (new URLSearchParams(window.location.search).get('from') || '').slice(0, 80); } catch (e) {}
+
+    var target;
+    if (WEBSITE) {
+      target = WEBSITE + (from ? (WEBSITE.indexOf('?') === -1 ? '?' : '&') + 'ref=' + encodeURIComponent(from) : '');
+    } else {
+      var msg = 'Halo Tehijoo Studio, ' +
+        (from ? 'saya melihat website ' + from + ' dan ' : 'saya ') +
+        'ingin bertanya tentang jasa pembuatan website.';
+      target = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg);
+    }
+    window.__tehijooTarget = target;
+    window.location.replace(target);
+  })();
+</script>
+<style>
+  :root { --matcha: #1F5135; --daun: #8BCB93; --seduhan: #E9F2E4; --arang: #16241B; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    padding: 24px 16px; background: var(--seduhan); color: var(--arang);
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  .card { max-width: 360px; width: 100%; text-align: center; background: #fff; border-radius: 20px; padding: 32px 24px; }
+  h1 { font-size: 20px; margin: 16px 0 6px; }
+  p { margin: 0 0 20px; color: #4B5563; font-size: 15px; line-height: 1.5; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px;
+    padding: 12px 20px; border-radius: 999px; background: var(--matcha); color: #fff;
+    font-weight: 700; text-decoration: none;
+  }
+  .btn:focus-visible { outline: 3px solid var(--daun); outline-offset: 3px; }
+</style>
+</head>
+<body>
+  <main class="card">
+    <img src="../credit/logo/tehijoo-mark.svg" width="56" height="56" alt="Tehijoo Studio">
+    <h1>Tehijoo Studio</h1>
+    <p>Sedang membuka WhatsApp… Kalau tidak terbuka otomatis, ketuk tombol di bawah.</p>
+    <a class="btn" id="tj-go" href="https://wa.me/6282235788376">Chat WhatsApp 0822-3578-8376</a>
+  </main>
+  <script>
+    if (window.__tehijooTarget) document.getElementById('tj-go').href = window.__tehijooTarget;
+  </script>
+</body>
+</html>

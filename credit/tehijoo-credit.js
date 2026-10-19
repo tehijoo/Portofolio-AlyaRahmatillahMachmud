@@ -11,13 +11,16 @@
  *   variant : text | pill | stack | mini         (default: text)
  *   theme   : light | dark | auto                (default: light; auto = ikut mode gelap perangkat)
  *   label   : teks pengantar                     (default: "Developed by")
- *   href    : tujuan tautan                      (default: portofolio Tehijoo Studio)
+ *   from    : nama website klien untuk pesan WA  (default: nama domain halaman)
+ *   href    : tujuan tautan                      (opsional; default halaman kontak Tehijoo Studio)
+ *   accent  : warna nama "Tehijoo Studio"         (mis. "var(--color-primary)" atau "#FFFFFF")
  */
 (function () {
   'use strict';
   if (typeof window === 'undefined' || !window.customElements || window.customElements.get('tehijoo-credit')) return;
 
-  var DEFAULT_HREF = 'https://tehijoo.github.io/Portofolio-AlyaRahmatillahMachmud/';
+  // Halaman perantara: sekarang meneruskan ke WhatsApp, nanti ke website usaha.
+  var DEFAULT_HREF = 'https://tehijoo.github.io/Portofolio-AlyaRahmatillahMachmud/go/';
   var NAME = 'Tehijoo Studio';
   var VARIANTS = ['text', 'pill', 'stack', 'mini'];
 
@@ -91,7 +94,7 @@
   }
 
   class TehijooCredit extends HTMLElement {
-    static get observedAttributes() { return ['variant', 'theme', 'label', 'href']; }
+    static get observedAttributes() { return ['variant', 'theme', 'label', 'href', 'accent', 'from']; }
 
     connectedCallback() {
       if (!this.shadowRoot) this.attachShadow({ mode: 'open' });
@@ -103,12 +106,18 @@
     }
 
     _render() {
+      var accent = this.getAttribute('accent');
+      ['--tj-name', '--tj-name-text', '--tj-ring'].forEach(function (prop) {
+        if (accent) this.style.setProperty(prop, accent); else this.style.removeProperty(prop);
+      }, this);
       var v = this.getAttribute('variant');
       if (VARIANTS.indexOf(v) === -1) v = 'text';
       var rawLabel = this.getAttribute('label') || 'Developed by';
       var label = esc(rawLabel);
-      var href = esc(safeHref(this.getAttribute('href')));
-      var open = '<a class="' + v + '" href="' + href + '" target="_blank" rel="noopener"';
+      var from = this.getAttribute('from') || (window.location && window.location.hostname) || '';
+      var href = esc(safeHref(this.getAttribute('href') ||
+        (DEFAULT_HREF + (from ? '?from=' + encodeURIComponent(from) : ''))));
+      var open = '<a class="' + v + '" href="' + href + '" target="_blank" rel="noopener" title="Hubungi Tehijoo Studio"';
       var html;
 
       if (v === 'pill') {

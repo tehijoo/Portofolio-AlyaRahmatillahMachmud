@@ -4,7 +4,7 @@
  *
  * Contoh:
  *   import TehijooCredit from '@/components/TehijooCredit';
- *   <TehijooCredit />                                   // teks, tema terang
+ *   <TehijooCredit from="Hidayah TV" />                 // teks, tema terang
  *   <TehijooCredit variant="pill" theme="dark" />
  *   <TehijooCredit variant="stack" theme="auto" label="Dikembangkan oleh" />
  *
@@ -12,10 +12,15 @@
  *   variant : 'text' | 'pill' | 'stack' | 'mini'   (default 'text')
  *   theme   : 'light' | 'dark' | 'auto'            (default 'light')
  *   label   : string                               (default 'Developed by')
- *   href    : string                               (default portofolio Tehijoo Studio)
+ *   from    : nama website klien, dikirim ke pesan WhatsApp (mis. 'Hidayah TV')
+ *   href    : string                               (opsional; default halaman kontak Tehijoo Studio)
+ *   accent  : warna CSS untuk nama "Tehijoo Studio", mis. 'var(--color-primary)' atau '#FFFFFF'.
+ *             Ikon daun tetap hijau Tehijoo; teks pengantar mengikuti warna footer.
  */
 
-const DEFAULT_HREF = 'https://tehijoo.github.io/Portofolio-AlyaRahmatillahMachmud/';
+// Halaman perantara: sekarang meneruskan ke WhatsApp Tehijoo Studio,
+// nanti ke website usaha (cukup diubah di go/index.html repo portofolio).
+const DEFAULT_HREF = 'https://tehijoo.github.io/Portofolio-AlyaRahmatillahMachmud/go/';
 const NAME = 'Tehijoo Studio';
 
 const DARK =
@@ -84,10 +89,13 @@ export default function TehijooCredit({
   variant = 'text',
   theme = 'light',
   label = 'Developed by',
-  href = DEFAULT_HREF,
+  href,
+  from,
+  accent,
   className = '',
 }) {
-  const link = { href, target: '_blank', rel: 'noopener' };
+  const target = href || (from ? `${DEFAULT_HREF}?from=${encodeURIComponent(from)}` : DEFAULT_HREF);
+  const link = { href: target, target: '_blank', rel: 'noopener', title: 'Hubungi Tehijoo Studio' };
   let content;
 
   if (variant === 'pill') {
@@ -126,7 +134,11 @@ export default function TehijooCredit({
   }
 
   return (
-    <span className={`tjc ${className}`.trim()} data-theme={theme}>
+    <span
+      className={`tjc ${className}`.trim()}
+      data-theme={theme}
+      style={accent ? { '--tj-name': accent, '--tj-name-text': accent, '--tj-ring': accent } : undefined}
+    >
       <style>{CSS}</style>
       {content}
     </span>
